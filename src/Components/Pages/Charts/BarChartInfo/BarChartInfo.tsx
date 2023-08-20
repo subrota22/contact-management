@@ -21,15 +21,15 @@ const BarChartInfo = () =>  {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-           <XAxis dataKey="country" />
-          <YAxis />
+           <XAxis dataKey="country" stroke='white' />
+          <YAxis  stroke='white'/>
           <Tooltip />
           <Legend />
                 
-          <Bar dataKey="deaths" fill="#82ca9d" />
-          <Bar dataKey="critical" fill="#82ca9d" />
-          <Bar dataKey="recoveredPerOneMillion" fill="#82ca9d" />
-          <Bar dataKey="casesPerOneMillion" fill="#82ca9d" />
+          <Bar dataKey="deaths" fill="red" />
+          <Bar dataKey="critical" fill="yellow" />
+          <Bar dataKey="recoveredPerOneMillion" fill="green" />
+          <Bar dataKey="casesPerOneMillion" fill="lime" />
         </BarChart>
       </ResponsiveContainer>
       </div>

@@ -1,9 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { PieChart, Pie, ResponsiveContainer } from 'recharts';
+import React, { PureComponent } from 'react';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { curveCardinal } from 'd3-shape';
+
 import PageLoader from '../../../Share/PageLoader/PageLoader';
 import { covidCountryDate, covidCountryUpdate } from '../../../../Redux/action/api-data';
+
+const cardinal = curveCardinal.tension(0.2);
 
 const PieChartInfo = () => {
   // const [data, setData] = useState() ;
@@ -45,12 +50,26 @@ console.log(covidUpdateQuery.data)
   return (
     <>
       <div style={{ height: "452px", width: "95%" }}>
-        <ResponsiveContainer width="90%" height="90%">
-          <PieChart width={400} height={400}>
-            <Pie data={covidData} dataKey="active" decelerate="deaths" cx="50%" cy="50%" outerRadius={60} fill="#8884d8" />
-            <Pie data={covidData} dataKey="critical" cx="50%" cy="50%" innerRadius={70} outerRadius={90} fill="#82ca9d" label />
-          </PieChart>
-        </ResponsiveContainer>
+      <ResponsiveContainer width="100%" height="100%">
+        <AreaChart
+          width={500}
+          height={400}
+          data={covidData}
+          margin={{
+            top: 10,
+            right: 30,
+            left: 0,
+            bottom: 0,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Area type="monotone" dataKey="critical" stroke="#8884d8" fill="#8884d8" fillOpacity={0.3} />
+          <Area type={cardinal} dataKey="deths" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.3} />
+        </AreaChart>
+      </ResponsiveContainer>
       </div>
     </>
   );

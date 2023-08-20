@@ -44,8 +44,8 @@ const DataLineChart = () => {
                     }}
                 >
                     <CartesianGrid strokeDasharray="3 5" color='white' />
-                    <XAxis dataKey="oneCasePerPeople" />
-                    <YAxis dataKey="todayRecovered" />
+                    <XAxis dataKey="oneCasePerPeople" stroke="white"/>
+                    <YAxis dataKey="todayRecovered" stroke="white" />
                     <Tooltip itemStyle={{ background: "darkblue", padding: "20px", height: "auto", width: "auto" }} />
                     <Legend style={{ background: "lime" }} />
 
