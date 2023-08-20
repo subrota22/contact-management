@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { covidCountryData } from '../../../../Redux/action/api-data';
 
 const DataLineChart = () => {
-    // const [data, setData] = useState() ;
     const dispatch = useDispatch();
     //get data covid-19 affected country from redux state 
     const covidData = useSelector((state: any) => state?.reducers?.covidCountry?.covidInfo);

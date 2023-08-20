@@ -73,7 +73,7 @@ const Home = () => {
                         <div className="flex sm:flex-col md:flex-col lg:flex-row">
                             <div className="alert alert-success mx-auto my-6 px-4 text-white w-fit flex justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                                <span className='text-xl'>Total <span className='text-primary'>{contactInfo?.contacts?.contactData?.length}</span>  contact information found !!</span>
+                                <span className='text-xl'>Total <span className='text-indigo-600 font-bold'>{contact?.length}</span>  contact information found !!</span>
                             </div>
 
                             <div className="mx-auto my-6 px-4 text-white w-96 pt-2 rounded-xl flex justify-center">
