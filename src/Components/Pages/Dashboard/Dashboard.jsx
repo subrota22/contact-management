@@ -1,10 +1,10 @@
 import { Helmet } from "react-helmet";
-import BarChartInfo from "../Charts/BarChartInfo/BarChartInfo";
+import AreaChartInfo from "../Charts/AreaChartInfo/AreaChartInfo";
 import DataLineChart from "../Charts/LineChart/LineChart";
-import PieChartInfo from "../Charts/PieChartInfo/PieChartInfo";
 import { BsBarChart, BsPieChartFill } from "react-icons/bs";
 import { GiChart } from "react-icons/gi";
 import { GrMapLocation } from "react-icons/gr";
+import BarChartInfo from "../Charts/BarChartInfo/BarChartInfo";
 const Dashboard = () => {
     return (
         <>
@@ -25,10 +25,10 @@ const Dashboard = () => {
                             <div className="card-body">
                                 <div className="card-title text-white text-center">
                                     <BsPieChartFill className="text-xl text-white mx-2"></BsPieChartFill>
-                                    Covid-19 info by Pie chart
+                                    Covid-19 info by Area chart
                                 </div>
                                 <hr />
-                                <PieChartInfo></PieChartInfo>
+                                <AreaChartInfo></AreaChartInfo>
                             </div>
                         </div>
                         {/* bar chart for covid-19 */}

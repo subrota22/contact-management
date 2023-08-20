@@ -10,7 +10,7 @@ import { covidCountryDate, covidCountryUpdate } from '../../../../Redux/action/a
 
 const cardinal = curveCardinal.tension(0.2);
 
-const PieChartInfo = () => {
+const AreaChartInfo = () => {
   // const [data, setData] = useState() ;
   const dispatch = useDispatch();
   //get data covid-19 affected country from redux state 
@@ -66,8 +66,9 @@ console.log(covidUpdateQuery.data)
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Area type="monotone" dataKey="critical" stroke="#8884d8" fill="#8884d8" fillOpacity={0.3} />
-          <Area type={cardinal} dataKey="deths" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.3} />
+          <Area type="monotone" dataKey="critical" stroke="lime" fill="#8884d8" fillOpacity={0.3} />
+      
+          <Area type={cardinal} dataKey="deths" stroke="blue" fill="#82ca9d" fillOpacity={0.3} />
         </AreaChart>
       </ResponsiveContainer>
       </div>
@@ -76,4 +77,4 @@ console.log(covidUpdateQuery.data)
 
 }
 
-export default PieChartInfo;
+export default AreaChartInfo;
