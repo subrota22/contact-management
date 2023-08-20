@@ -53,37 +53,75 @@ Welcome to [Contact Management]! To get started, follow these steps to run the a
 
 **Running the App:**
 
-1. **Prerequisites:** Ensure you have Node.js (minimum version [Version Number]) and npm installed on your system.
+1. **Prerequisites:** Ensure you have Node.js (v18.16.0 [v18.16.0]) and npm installed on your system.
 
-2. **Installation:** Clone the app's repository from [GitHub Repository URL] and navigate to the app's directory using the command line.
+2. **Installation:** Clone the app's repository from [https://github.com/subrota22/contact-management] and navigate to the app's directory using the command line.
 
 3. **Dependencies:** Install the required dependencies using `npm install`.
 
-4. **Configuration:** Rename the `.env.example` file to `.env` and configure the environment variables according to your needs.
+4. **Configuration:** Rename the `REACT_APP_TOKEN` file to `.env` and configure the environment variables according to your needs.Recive it in your component with `process.env.REACT_APP_TOKEN`
 
 5. **Start the App:** Launch the app with `npm start`. Open your browser and go to `http://localhost:3000` (or as specified in your `.env`).
 
 **Interacting with the API:**
 
-[Your App's Name] offers various API endpoints to provide functionality. Here's an example endpoint:
+[covid-19 affected country] offers various API endpoints to provide functionality. Here's an example endpoint:
 
-- **Endpoint:** `/api/endpoint`
+- **Endpoint:** `https://disease.sh/v3/covid-19/countries`
   - **Method:** GET
-  - **Description:** [Description of the endpoint]
-  - **Parameters:** `param1` for [parameter purpose] and `param2` for [parameter purpose].
+  - **Description:** [This api will fetch the all data of countries]
   - **Example Request:**
     ```
-    GET /api/endpoint?param1=value1&param2=value2
-    ```
-  - **Example Response:**
-    ```json
-    {
-      "message": "Response message",
-      "data": { ... }
-    }
+    GET https://disease.sh/v3/covid-19/countries
+
     ```
 
-Remember to replace `param1`, `param2`, and other placeholders with actual values.
+    - **Endpoint-2:** `https://disease.sh/v3/covid-19/all`
+  - **Method:** GET
+  - **Description:** [This api will fetch the data of countries for covid-19 update]
+  - **Example Request:**
+    ```
+    GET https://disease.sh/v3/covid-19/countries
+
+
+    - **Endpoint-:** `https://disease.sh/v3/covid-19/all`
+  - **Method:** GET
+  - **Description:** [This api will fetch the data of countries for covid-19 update]
+  - **Example Request:**
+    ```
+    GET https://disease.sh/v3/covid-19/countries
+
+    - **Endpoint-2:** `https://disease.sh/v3/covid-19/historical/all?lastdays=all`
+  - **Method:** GET
+  - **Description:** [This api will fetch for covid-19 date of cases]
+  - **Example Request:**
+    ```
+    GET https://disease.sh/v3/covid-19/historical/all?lastdays=all
+
+
+    - **Endpoint-2:** `https://disease.sh/v3/covid-19/historical/all?lastdays=all`
+  - **Method:** GET
+  - **Description:** [This api will fetch the data of countries for covid-19 update]
+  - **Example Request:**
+    ```
+    GET https://disease.sh/v3/covid-19/historical/all?lastdays=all
+
+**Tools and Packages:**
+
+      # Redux
+      # TranStack Query
+      # TypeScript
+      # Sweetalert2
+      # React router dom
+      # Tailwind CSS
+      # Daisy UI
+      # React JS
+      # React Spinner
+      # React Redux
+      # Redux Toolkit
+      # React Icons
+      # React Helmet
+      # Rechart
 
 **API Keys:**
 
@@ -91,4 +129,10 @@ Some features of [Your App's Name] might require API keys. Obtain the keys from 
 
 **Troubleshooting:** If you encounter issues, consult the provided troubleshooting guide or contact support at [subrota45278@gmail.com](mailto:subrota45278@gmail.com).
 
-In just a few simple steps, you'll have [Your App's Name] up and running, with the API ready for exploration and integration into your projects. Happy coding!
+In just a few simple steps, you'll have [Contact management] up and running, with the API ready for exploration and integration into your projects.
+
+**Redux Working Overflow:** The provider has in the index.js file with wrap App.js Provider taken
+one store that is `configeStore` from  Redux Toolkit.ConfigStore has reudcer this reducer take an object that is reducers this is the `combineReducer` this combineReducer taken the all reducer that I have in the reducer directory wtih file name covidInfo and index.js of the root for combineReducer.All action has in the action directory and actionType has in the actionType directory.Has `useDispatch` to dispatch data and `useSelector` from `react-redux`.
+
+  >> Happy coding!
+
