@@ -7,11 +7,11 @@ import Swal from 'sweetalert2';
 import { Helmet } from "react-helmet";
 const Home = () => {
 
-    const contactInfo = useSelector((store: any) => store?.reducers);
+    const contactInfo = useSelector((store: string | object | number | any) => store?.reducers);
     let contactData = contactInfo?.contacts?.contactData;
     const [contact, setContact] = useState(contactData);
 
-    const deleteContact = (id: any) => {
+    const deleteContact = (id: string | object | number | any) => {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -25,12 +25,12 @@ const Home = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // Find the index of the object with the specified ID
-                let indexToDelete = contactData.findIndex((data: any) => parseInt(data.id) === parseInt(id));
+                let indexToDelete = contactData.findIndex((data: string | object | number | any) => parseInt(data.id) === parseInt(id));
                 //remove one object from array by it's index number
                 if (indexToDelete >= 0 && indexToDelete < contactData.length) {
                     const dataAfterDelete = contactData.splice(indexToDelete, 1);
                     //set that data after deleted 
-                    let removeOneData = contactData.filter((item: any) => item.id !== parseInt(id));
+                    let removeOneData = contactData.filter((item: string | object | number | any) => item.id !== parseInt(id));
                     setContact(removeOneData);
                     if (dataAfterDelete) {
                         Swal.fire({
@@ -53,21 +53,15 @@ const Home = () => {
                 })
             }
         })
-
-
     }
-    if (contactData?.length === 0) {
-        return <>
-            <div className='h-screen'>
-                <div className='w-96 mx-auto mt-52 text-xl'>
-                    <div className="alert alert-info text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span>There is no contact data available</span>
-                    </div>
-                </div>
-            </div>
-        </>
+    //search data
+    const handleSearchText = (value: string | object | number | any) => {
+        const searchQuery = value;
+        const searchedData = contactData.filter((item: string | object | number | any) => item?.firstName.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase()));
+        setContact(searchedData);
+        
     }
+  
     return (
         <>
             <Helmet><title>Home page</title></Helmet>
@@ -75,10 +69,42 @@ const Home = () => {
                 {
                     contactData?.length !== 0 &&
 
-                    <div className="alert alert-success mx-auto my-6 px-4 text-white w-fit flex justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        <span className='text-xl'>Total <span className='text-primary'>{contactInfo?.contacts?.contactData?.length}</span>  contact information found !!</span>
+                    <>
+                        <div className="flex sm:flex-col md:flex-col lg:flex-row">
+                            <div className="alert alert-success mx-auto my-6 px-4 text-white w-fit flex justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <span className='text-xl'>Total <span className='text-primary'>{contactInfo?.contacts?.contactData?.length}</span>  contact information found !!</span>
+                            </div>
+
+                            <div className="mx-auto my-6 px-4 text-white w-96 pt-2 rounded-xl flex justify-center">
+                                <input type="text" placeholder="Search by first name" onChange={(e) => handleSearchText(e.target.value)} className="input input-bordered input-success w-full max-w-xs" />
+                            </div>
+                        </div>
+                    </>
+                }
+                {
+                   contactData?.length === 0 &&  <>
+                    <div className='h-screen'>
+                        <div className='w-96 mx-auto mt-52 text-xl'>
+                            <div className="alert alert-info text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>There is no contact data available</span>
+                            </div>
+                        </div>
                     </div>
+                </>
+                }
+                 {
+                        contact?.length === 0 &&  <>
+                        <div className='h-96'>
+                            <div className='w-96 mx-auto mt-52 text-xl'>
+                                <div className="alert alert-info text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span>Sorry search data not found !!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </>
                 }
                 <div className="grid sm:grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-8">
                     {
