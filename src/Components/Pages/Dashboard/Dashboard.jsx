@@ -77,7 +77,7 @@ const Dashboard = () => {
                                     Our first Location
                                 </div>
                                 <hr />
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.03615612356!2d-74.30934136091483!3d40.697539948438326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1692515458730!5m2!1sen!2sbd" width="100%" height="400px" style={{ border: "0px", borderRadius: "12px" }} allowfullscreen="true" title="first-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.03615612356!2d-74.30934136091483!3d40.697539948438326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1692515458730!5m2!1sen!2sbd" width="100%" height="400px" style={{ border: "0px", borderRadius: "12px" }} allowfullscreen="true" title="first-map" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
                         {/* Our second Location map */}
@@ -89,7 +89,7 @@ const Dashboard = () => {
                                 </div>
                                 <hr />
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6998898.249461299!2d-105.37224516183088!3d31.069942071994603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864070360b823249%3A0x16eb1c8f1808de3c!2sTexas%2C%20USA!5e0!3m2!1sen!2sbd!4v1692515757637!5m2!1sen!2sbd"
-                                    width="100%" height="400px" style={{ border: "0px", borderRadius: "12px" }} allowfullscreen="true" title="second-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    width="100%" height="400px" style={{ border: "0px", borderRadius: "12px" }} allowfullscreen="true" title="second-map" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
 
@@ -104,7 +104,7 @@ const Dashboard = () => {
                             <hr />
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6769270.143240359!2d-111.31994486723956!3d34.061625996974385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87185043e79852a9%3A0x46bf6e1a63359eba!2sNew%20Mexico%2C%20USA!5e0!3m2!1sen!2sbd!4v1692516008237!5m2!1sen!2sbd"
                                 width="100%" height="400px" style={{ border: "0px", borderRadius: "12px" }}
-                                allowfullscreen="true" title="Third location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                allowfullscreen="true" title="Third location" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
 

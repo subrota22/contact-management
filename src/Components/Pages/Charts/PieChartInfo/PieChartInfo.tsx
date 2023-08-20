@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { PieChart, Pie, ResponsiveContainer } from 'recharts';
 import PageLoader from '../../../Share/PageLoader/PageLoader';
@@ -15,36 +15,33 @@ const PieChartInfo = () => {
   //get date covid-19 from redux state 
   const covidUpdateInfo = useSelector((state: any) => state?.reducers?.covidInfoUpdate?.covidUpdate);
 
-  console.log(covidDate, covidUpdateInfo);
 
-  //Get covid date 
-  const { isLoading, data:covidDateInfo = {} } = useQuery({
-    queryKey: ["data"],
-    queryFn: () => fetch(`https://disease.sh/v3/covid-19/historical/all?lastdays=all`)
-      .then(res => res.json())
-      .then(data => dispatch(covidCountryDate(data)))
-  });
-  //Get covid-19 updae 
-  const { data: covidUpdate = {} } = useQuery({
-    queryKey: ["data"],
-    queryFn: () => fetch(`https://disease.sh/v3/covid-19/all`)
-      .then(res => res.json())
-      .then(data => dispatch(covidCountryUpdate(data)))
+   //Get covid-19 date 
+
+   const covidDateQuery = useQuery({
+    queryKey: [dispatch],
+    queryFn: async () => {
+      const response = await  axios.get('https://disease.sh/v3/covid-19/historical/all?lastdays=all');
+      const data = await response.data;
+      return dispatch(covidCountryDate(data))
+    }
   });
 
 
-  //Print two data for test 
-  console.log(covidDateInfo, covidUpdate);
+  //Get covid-19 update 
 
-  if (isLoading) {
-    return <>
-
-      <div className="h-screen">
-        <PageLoader></PageLoader>
-      </div>
-    </>
-  }
-
+     const covidUpdateQuery = useQuery({
+      queryKey: [dispatch],
+      queryFn: async () => {
+        const response = await  axios.get('https://disease.sh/v3/covid-19/all');
+        const data = await response.data;
+        return dispatch(covidCountryUpdate(data))
+      }
+    });
+    if( covidDateQuery.isLoading|| covidUpdateQuery.isLoading) return ( <PageLoader></PageLoader>)
+    if( covidDateQuery.isError || covidUpdateQuery.isError ) return (<h1>Error loading data!!!</h1>)
+  
+console.log(covidUpdateQuery.data)
   return (
     <>
       <div style={{ height: "452px", width: "95%" }}>
