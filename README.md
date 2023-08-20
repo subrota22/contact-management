@@ -44,3 +44,51 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## First working progress
+
+**Running the App and Interacting with the API**
+
+Welcome to [Contact Management]! To get started, follow these steps to run the app and explore its API capabilities.
+
+**Running the App:**
+
+1. **Prerequisites:** Ensure you have Node.js (minimum version [Version Number]) and npm installed on your system.
+
+2. **Installation:** Clone the app's repository from [GitHub Repository URL] and navigate to the app's directory using the command line.
+
+3. **Dependencies:** Install the required dependencies using `npm install`.
+
+4. **Configuration:** Rename the `.env.example` file to `.env` and configure the environment variables according to your needs.
+
+5. **Start the App:** Launch the app with `npm start`. Open your browser and go to `http://localhost:3000` (or as specified in your `.env`).
+
+**Interacting with the API:**
+
+[Your App's Name] offers various API endpoints to provide functionality. Here's an example endpoint:
+
+- **Endpoint:** `/api/endpoint`
+  - **Method:** GET
+  - **Description:** [Description of the endpoint]
+  - **Parameters:** `param1` for [parameter purpose] and `param2` for [parameter purpose].
+  - **Example Request:**
+    ```
+    GET /api/endpoint?param1=value1&param2=value2
+    ```
+  - **Example Response:**
+    ```json
+    {
+      "message": "Response message",
+      "data": { ... }
+    }
+    ```
+
+Remember to replace `param1`, `param2`, and other placeholders with actual values.
+
+**API Keys:**
+
+Some features of [Your App's Name] might require API keys. Obtain the keys from respective services, and insert them in the `.env` file as `API_KEY=[your-api-key]`.
+
+**Troubleshooting:** If you encounter issues, consult the provided troubleshooting guide or contact support at [subrota45278@gmail.com](mailto:subrota45278@gmail.com).
+
+In just a few simple steps, you'll have [Your App's Name] up and running, with the API ready for exploration and integration into your projects. Happy coding!
